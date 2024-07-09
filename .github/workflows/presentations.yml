@@ -7,21 +7,12 @@ on:
       - main
 
 jobs:
-  builld-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        spa: [DUW24_summary]  # List of SPAs to deploy
-
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+        spa: [DUW24_summary]  # List of SPAs to build
 
     steps:
       - name: Checkout code
@@ -44,12 +35,36 @@ jobs:
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ matrix.spa }}/dist  # Ensure this path is correct
+          path: ${{ matrix.spa }}/dist
 
       - name: List files after build
         run: |
           ls -R ${{ matrix.spa }}/dist
 
-      - name: Deploy
+
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    strategy:
+      matrix:
+        spa: [DUW24_summary]  # List of SPAs to deploy 
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        # with:
+        #   artifact_name: ${{ matrix.spa }}/dist

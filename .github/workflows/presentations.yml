@@ -1,0 +1,55 @@
+name: Deploy pres
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+
+jobs:
+  builld-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        spa: [DUW24_summary]  # List of SPAs to deploy
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dependencies and build
+        run: |
+          cd ${{ matrix.spa }}
+          npm install @slidev/cli @slidev/theme-default slidev-theme-hep
+          npm run build -- --base /${{ github.event.repository.name }}/${{ matrix.spa }}
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ matrix.spa }}/dist  # Ensure this path is correct
+
+      - name: List files after build
+        run: |
+          ls -R ${{ matrix.spa }}/dist
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

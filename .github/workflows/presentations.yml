@@ -25,9 +25,8 @@ jobs:
 
       - name: Install dependencies and build
         run: |
-          cd ${{ matrix.spa }}
           npm install @slidev/cli @slidev/theme-default slidev-theme-hep
-          npm run build -- --base /${{ github.event.repository.name }}/${{ matrix.spa }}
+          npm run build -- --base /${{ github.event.repository.name }}/
 
       - name: Configure Pages
         uses: actions/configure-pages@v4
@@ -35,11 +34,7 @@ jobs:
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ matrix.spa }}/dist
-
-      - name: List files after build
-        run: |
-          ls -R ${{ matrix.spa }}/dist
+          path: dist
 
 
   deploy:
@@ -52,20 +47,9 @@ jobs:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
 
-    # strategy:
-    #   matrix:
-    #     spa: [DUW24_summary]  # List of SPAs to deploy 
-
-    # # Deploy to the github-pages environment
-    # environment:
-    #   name: github-pages
-    #   url: ${{ steps.deployment.outputs.page_url }}
-
     # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        # with:
-        #   artifact_name: ${{ matrix.spa }}/dist

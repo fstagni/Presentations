@@ -296,6 +296,13 @@ The experience of Belle2 will be useful for all of them.
 - foundations are there
 - plans to ease the interoperability with Rucio (DiracX will still have the Data Management part)
 
+---
+layout: iframe
+
+# the web page source
+url: google.ch
+---
+
 
 ---
 layout: center

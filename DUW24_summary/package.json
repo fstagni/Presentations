@@ -1,0 +1,25 @@
+{
+  "name": "duw24_summary",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "slidev build slides.md",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fstagni/Presentations.git"
+  },
+  "keywords": [
+    "dirac",
+    "workshop",
+    "summary"
+  ],
+  "author": "Federico Stagni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fstagni/Presentations/issues"
+  },
+  "homepage": "https://github.com/fstagni/Presentations#readme",
+  "description": ""
+}

@@ -118,9 +118,9 @@ A number of actions followed the EOL of EL7 -- some rather techinical (not liste
 - LHCb made an (successful) effort for moving VOMS-Admin to IAM before the end of June (and everything done is available to the other communities)
 - to our slight surprise, other communties using DIRAC did not do the same
 
-<img src="images/GridPP-IAM.png" class="m-10 h-40 rounded shadow" />
+<img src="/images/GridPP-IAM.png" class="m-10 h-40 rounded shadow" />
 
-<img src="images/Belle2-IAM.png" class="m-10 h-80 rounded shadow" />
+<img src="/images/Belle2-IAM.png" class="m-10 h-80 rounded shadow" />
 
 
 ---
@@ -135,7 +135,7 @@ A number of actions followed the EOL of EL7 -- some rather techinical (not liste
 
 It is **a complete rewrite** of DIRAC, but the DBs are staying!
 
-![DtoX](images/DtoX.png)
+![DtoX](/images/DtoX.png)
 
 
 <img id="DiracX" src="https://raw.githubusercontent.com/DIRACGrid/management/master/branding/diracx/svg/diracx-logo-square.svg"> </img>
@@ -240,7 +240,7 @@ layout: two-cols
 
 ::right::
 
-![web](images/web.png)
+![web](/images/web.png)
 
 
 
@@ -270,7 +270,7 @@ Sometimes in January (or February) 2025 at CERN
 In IHEP, Beijing, September 18th-20th September 2025 : https://indico.cern.ch/e/duw11
 
 
-![](images/ihep_logo_1.jpg)
+![](/images/ihep_logo_1.jpg)
 
 
 ---
@@ -295,13 +295,6 @@ The experience of Belle2 will be useful for all of them.
 - will live together with DIRAC v9 for a while
 - foundations are there
 - plans to ease the interoperability with Rucio (DiracX will still have the Data Management part)
-
----
-layout: iframe
-
-# the web page source
-url: google.ch
----
 
 
 ---

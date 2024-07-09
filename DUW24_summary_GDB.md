@@ -30,7 +30,7 @@ preTitle: "The 10th DIRAC Users' Workshop: summary"
 
 ---
 layout: image-right
-image: images/Groupe_dirac.jpg
+image: /images/Groupe_dirac.jpg
 ---
 
 # Logistics
@@ -57,7 +57,7 @@ In Lyon, CC-IN2P3
 
 ---
 layout: image-left
-image: images/DUW10_agenda.png
+image: /images/DUW10_agenda.png
 ---
 
 # Agenda
@@ -246,7 +246,7 @@ layout: two-cols
 
 ---
 layout: image-right
-image: images/IHEP.jpg
+image: /images/IHEP.jpg
 ---
 
 # Future events

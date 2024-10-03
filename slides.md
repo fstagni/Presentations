@@ -56,10 +56,21 @@ color: gray-light
 
 # Used by several communities 
 
-<img id="DIRAC" src="/public/images/ihep_logo_1.jpg" alt=IHEP, style="width: 100px;">
+<img id="DIRAC" src="/public/images/Juno.jpeg" alt=Juno, style="width: 100px;">
 <img id="DIRAC" src="/public/images/Belle2_logo.png" alt=Belle2, style="width: 100px;">
 <img id="DIRAC" src="/public/images/CTA.jpg" alt=CTA, style="width: 100px;">
 <img id="DIRAC" src="/public/images/ilc.png" alt=ILC, style="width: 100px;">
+<img id="DIRAC" src="/public/images/LHCb.png" alt=LHCb, style="width: 100px;">
+<img id="DIRAC" src="/public/images/nica.jpg" alt=nica, style="width: 100px;">
+<img id="DIRAC" src="/public/images/BES3.png" alt=BES3, style="width: 100px;">
+<img id="DIRAC" src="/public/images/GridPP-Logo.png" alt=gridPP, style="width: 100px;">
+<img id="DIRAC" src="/public/images/pierre-auger-logo.png" alt=pierre-auger, style="width: 100px;">
+<img id="DIRAC" src="/public/images/EGI.png" alt=EGI, style="width: 100px;">
+<img id="DIRAC" src="/public/images/cepc.png" alt=cepc, style="width: 100px;">
+<img id="DIRAC" src="/public/images/na62.jpeg" alt=na62, style="width: 100px;">
+<img id="DIRAC" src="/public/images/Juno.jpeg" alt=Juno, style="width: 100px;">
+<img id="DIRAC" src="/public/images/t2k.png" alt=t2k, style="width: 100px;">
+
 
 
 ---
@@ -154,20 +165,22 @@ title: Productions
 
 :: content ::
 
-<span class="bg-red-100 text-red-600 p-2 border-l-6 border-2 border-red-400 rounded-lg pl-4 pr-4">The **Transformation System (TS)** is used to automate common tasks related to production activities</span>
+<span class="bg-red-100 text-red-600 p-4 border-l-6 border-2 border-red-400 rounded-lg pl-8 pr-8 w-full block">
+    The **Transformation System (TS)** is used to automate common tasks related to production activities
+</span>
 
 ```mermaid
 flowchart LR;
 TransformationSystem((TransformationSystem))
     Productions_Management-->TransformationSystem;
     DataSets_Management-->TransformationSystem;
+    TransformationSystem-->WorkloadManagementSystem;
+    WorkloadManagementSystem-->Jobs;
+    WorkloadManagementSystem-->Sites;
     TransformationSystem-->RequestManagementSystem;
     RequestManagementSystem-->DMS;
     DMS-->Catalogs;
     DMS-->SEs;
-    TransformationSystem-->WorkloadManagementSystem;
-    WorkloadManagementSystem-->Jobs;
-    WorkloadManagementSystem-->Sites;
     style TransformationSystem fill:#bbf
 ```
 

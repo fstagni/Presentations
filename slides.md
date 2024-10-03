@@ -54,22 +54,26 @@ slide_info: false
 color: gray-light
 ---
 
-# Used by several communities 
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
+  <img id="DIRAC" src="/public/images/Juno.jpeg" alt="Juno" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/Belle2_logo.png" alt="Belle2" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/CTA.jpg" alt="CTA" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/ilc.png" alt="ILC" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/LHCb.png" alt="LHCb" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/nica.jpg" alt="nica" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/BES3.png" alt="BES3" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/GridPP-Logo.png" alt="gridPP" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/pierre-auger-logo.png" alt="pierre-auger" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/EGI.png" alt="EGI" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/cepc.png" alt="cepc" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/na62.jpeg" alt="na62" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/t2k.png" alt="t2k" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/WeNMR-logo.png" alt="weNMR" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/LogoHyperK.png" alt="hyperk" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/euclid.jpeg" alt="euclid" style="width: 80px;">
+  <img id="DIRAC" src="/public/images/LZ.png" alt="lz" style="width: 80px;">
+</div>
 
-<img id="DIRAC" src="/public/images/Juno.jpeg" alt=Juno, style="width: 100px;">
-<img id="DIRAC" src="/public/images/Belle2_logo.png" alt=Belle2, style="width: 100px;">
-<img id="DIRAC" src="/public/images/CTA.jpg" alt=CTA, style="width: 100px;">
-<img id="DIRAC" src="/public/images/ilc.png" alt=ILC, style="width: 100px;">
-<img id="DIRAC" src="/public/images/LHCb.png" alt=LHCb, style="width: 100px;">
-<img id="DIRAC" src="/public/images/nica.jpg" alt=nica, style="width: 100px;">
-<img id="DIRAC" src="/public/images/BES3.png" alt=BES3, style="width: 100px;">
-<img id="DIRAC" src="/public/images/GridPP-Logo.png" alt=gridPP, style="width: 100px;">
-<img id="DIRAC" src="/public/images/pierre-auger-logo.png" alt=pierre-auger, style="width: 100px;">
-<img id="DIRAC" src="/public/images/EGI.png" alt=EGI, style="width: 100px;">
-<img id="DIRAC" src="/public/images/cepc.png" alt=cepc, style="width: 100px;">
-<img id="DIRAC" src="/public/images/na62.jpeg" alt=na62, style="width: 100px;">
-<img id="DIRAC" src="/public/images/Juno.jpeg" alt=Juno, style="width: 100px;">
-<img id="DIRAC" src="/public/images/t2k.png" alt=t2k, style="width: 100px;">
 
 
 
@@ -117,6 +121,7 @@ layout: side-title
 align: lm-lm
 color: gray-light
 title: DMS
+titlewidth: is-5
 ---
 
 :: title ::
@@ -165,9 +170,12 @@ title: Productions
 
 :: content ::
 
-<span class="bg-red-100 text-red-600 p-4 border-l-6 border-2 border-red-400 rounded-lg pl-8 pr-8 w-full block">
+<span class="bg-cyan-100 text-cyan-600 p-4 border-l-6 border-2 border-cyan-400 rounded-lg pl-8 pr-8 w-full block">
     The **Transformation System (TS)** is used to automate common tasks related to production activities
 </span>
+
+&nbsp;
+&nbsp;
 
 ```mermaid
 flowchart LR;
@@ -396,9 +404,9 @@ color: gray-light
 
 
 ---
-layout: top-title
+layout: side-title
 color: gray-light
-align: l
+align: lm-lm
 title: Migration
 ---
 
@@ -406,11 +414,31 @@ title: Migration
 
 # Migration from DIRAC
 
-:: content ::
-
 - at the moment, it is not possible to run DiracX standalone
 - DIRAC v9 and DiracX will need to live together for a long while
 
+
+:: content ::
+
+<div style="width: 80%; height: 500px;">
+    ```mermaid
+    architecture-beta
+        group common(db)[common]
+        group DIRAC(server)[DIRAC]
+        group DiracX(server)[DiracX]
+
+        service db(devicon:sqldeveloper)[Database] in common
+        service client(clarity:thin-client-solid)[Client] in DIRAC
+        service dips(server)[DIPS] in DIRAC
+        service fastapi(devicon:fastapi)[FastAPI] in DiracX
+        service clientx(clarity:thin-client-line)[Client] in DiracX
+
+        db:B -- T:dips
+        db:B -- T:fastapi
+        dips:B -- T:client
+        fastapi:B -- T:clientx
+    ```
+</div>
 
 
 ---
@@ -486,36 +514,32 @@ title: Development
 layout: side-title
 color: gray-light
 title: Contribute
-align: lm-lm
-titlewidth: is-5
+align: cm-lm
+titlewidth: is-3
 ---
 
 :: title ::
 
-<IceCream :size="150" mood="lovestruck" color="#FDA7DC" />
-
-<SpeechBubble position="l" shape="round"  color='pink-light'>
-I want to contribute
-</SpeechBubble>
+# *"I want to contribute"*
 
 :: content ::
 
-Several areas of contribution are possible, but of course:
+## The obvious ways:
 
-- tests: (as you could see we have a somewhat open test deployment infrastructure). You *can* try something out!
+- tests: (as you could see we have a somewhat open test deployment infrastructure). You *can* try something out, and let us know!
 - code: https://github.com/DIRACGrid/diracx
 
-Run the demo: 
+## Run the demo: 
 
 ```sh
 git clone https://github.com/DIRACGrid/diracx-charts
 diracx-charts/run_demo.sh  # do not do it now!
 ```
 
-Discuss:
-- in meetings: (almost) every week on Thursday morning (CET)
-- hackathons: we have been doing 2-days DiracX hackathons every quarter. At CERN. Next one in January: https://indico.cern.ch/event/1458873/
-- mattermost : https://mattermost.web.cern.ch/diracx/
+## Discuss:
+- **mattermost** : https://mattermost.web.cern.ch/diracx/
+- **meetings**: (almost) every week on Thursday morning (CET)
+- **hackathons**: we have been doing 2-days DiracX hackathons every quarter. At CERN. [Next one in January](https://indico.cern.ch/event/1458873/)
 
 
 ---

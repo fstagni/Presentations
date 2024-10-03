@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies and build
         run: |
-          npm install @slidev/cli @slidev/theme-default slidev-theme-hep slidev-theme-neversink
+          npm install @slidev/cli @slidev/theme-default slidev-theme-hep slidev-theme-neversink @iconify-json/clarity @iconify-json/devicon
           npm run build -- --base /${{ github.event.repository.name }}/
 
       - name: Configure Pages

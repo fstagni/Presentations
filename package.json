@@ -21,5 +21,9 @@
     "url": "https://github.com/fstagni/Presentations/issues"
   },
   "homepage": "https://github.com/fstagni/Presentations#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@iconify-json/clarity": "^1.2.0",
+    "@iconify-json/devicon": "^1.2.3"
+  }
 }

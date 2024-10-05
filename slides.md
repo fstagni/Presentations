@@ -1,97 +1,194 @@
 ---
-colorSchema: light
-color: orange-light
+theme: hep
+
+background: https://raw.githubusercontent.com/DIRACGrid/management/master/branding/diracx/svg/diracx-logo-full.svg
+# apply any unocss classes to the current slide
+# class: 'text-center'
+# # https://sli.dev/custom/highlighters.html
+highlighter: shiki
 layout: cover
-routerMode: hash
-title: The neXt Dirac incarnation
-theme: neversink 
-neversink_string: "DiracX CHEP"
+class: text-left
+authors:  # First author should be the presenter
+  - Federico Stagni: ["CERN"]
+  
+meeting: "GDB"
+preTitle: "The 10th DIRAC Users' Workshop: summary"
 ---
 
-# The neXt Dirac incarnation
+<br>
 
-**Federico Stagni** <Email v="federico.stagni@cern.ch" />
+<img id="DiracX" src="https://raw.githubusercontent.com/DIRACGrid/management/master/branding/diracx/svg/diracx-logo-square.svg"> </img>
 
-October 25th 2024
-__ <a href="https://indico.cern.ch/event/1338689/" class="ns-c-iconlink"><mdi-open-in-new />CHEP 2024</a>  
-
-
-
----
-layout: section
-color: lime-light
----
-
-## This is the story of why and how we decided to take a successful project, and rewrite it from scratch
-
+<style scoped>
+#DiracX {
+  width: 180px;
+  position: absolute;
+  right: 3%;
+  bottom: 12%;
+}
+</style>
 
 ---
-layout: section 
-color: lime-light
+layout: image-right
+image: /images/Groupe_dirac.jpg
 ---
 
-<div style="display: flex; align-items: center; justify-content: center;">
-    <img id="DIRAC" src="/public/images/DIRAC-logo-extended.png" alt="DIRAC logo" style="width: 300px;">
-    <span style="margin: 0 50px;">--></span>
-    <img id="DiracX" src="https://raw.githubusercontent.com/DIRACGrid/management/master/branding/diracx/svg/diracx-logo-full.svg" alt="DiracX" style="width: 300px;">
-</div>
+# Logistics
 
 
----
-layout: section
-color: cyan-light
----
+<br>
 
-## What is DIRAC?
+The workshop took place over 3 days:
+- Wednesday afternoon
+- Thursday 
+- Friday morning
 
+<br>
 
----
-layout: iframe-left
-title: DIRAC
-url: https://dirac.readthedocs.io/en/latest/
-class: DIRAC
-slide_info: false
-color: gray-light
----
+In Lyon, CC-IN2P3 
 
-<div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
-  <img id="DIRAC" src="/public/images/Juno.jpeg" alt="Juno" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/Belle2_logo.png" alt="Belle2" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/CTA.jpg" alt="CTA" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/ilc.png" alt="ILC" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/LHCb.png" alt="LHCb" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/nica.jpg" alt="nica" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/BES3.png" alt="BES3" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/GridPP-Logo.png" alt="gridPP" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/pierre-auger-logo.png" alt="pierre-auger" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/EGI.png" alt="EGI" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/cepc.png" alt="cepc" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/na62.jpeg" alt="na62" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/t2k.png" alt="t2k" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/WeNMR-logo.png" alt="weNMR" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/LogoHyperK.png" alt="hyperk" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/euclid.jpeg" alt="euclid" style="width: 80px;">
-  <img id="DIRAC" src="/public/images/LZ.png" alt="lz" style="width: 80px;">
-</div>
+<img id="cc-in2p3" src="https://cc.in2p3.fr/wp-content/uploads/2018/03/logosimpleCC.jpg"> </img>
 
+<br>
 
+"Only" 26 registered **"Users"** -- I would call them **"Experts"**.
+- Most of them Dirac administrators and developers
 
 
 ---
-layout: side-title
-align: lm-lm
-color: gray-light
-title: WMS
+layout: image-left
+image: /images/DUW10_agenda.png
 ---
 
-:: title ::
+# Agenda
 
-# Workload Management System
-- Pull model based on Pilot jobs
-- Also "Push" solution for HPCs that do not support pilots (because of limited internet access).
-- Will integrate [CWL (Common Workflow Language)](https://www.commonwl.org) as a way of defining jobs (replacing JDL)
+Presentations only in the first 2 days (community reports + developers reports) 
 
-:: content ::
+Zoom was on, but *almost* un-attended -- this was in large an old-style f2f meeting!
+Discussions were highly encouraged, and we had **lots** of them.
+
+<br>
+
+**We were there to *get things done***
+
+<br>
+
+The **hackathon** part lasted 1 afternoon and 1 morning. 
+
+Thursday afternoon, we formed 2 groups:
+1. following instructions, [run a DiracX server on a k3s server](https://github.com/DIRACGrid/diracx-charts/tree/master/k3s)
+2. "free" discussions/hacking sessions
+
+On Friday morning we split in "free", smaller groups, for discussions/hacking sessions
+
+
+---
+
+# Communities reports
+
+
+<br>
+
+- Single-VO installations: LHCb, Belle2, CTAO
+- Multi-VO installations: EGI (20), GridPP (11), IHEP (4), CERN/SFT (3)
+
+In total, there are at least 41 known communities using Dirac, supporting the work of thousands of scientists (not all Users/Admins were there to report).
+
+<br>
+
+### Major points:
+- Large differences in terms of what are their:
+  - workflows
+  - computing needs
+  - data management and access requirements
+- Some installations/communities expose Dirac to all their users, others only to power users.
+- "Institutionalized" productions predominant.
+- Several complains received for the lack of general resource information index[^1]
+
+
+[^1]: BDII **was** the only way for several small-medium community to know which VO could run and where.
+
+
+---
+
+# EL7 EOL, and the supposed death of VOMS-Admin
+
+A number of actions followed the EOL of EL7 -- some rather techinical (not listed here).
+
+- LHCb made an (successful) effort for moving VOMS-Admin to IAM before the end of June (and everything done is available to the other communities)
+- to our slight surprise, other communties using DIRAC did not do the same
+
+<img src="/images/GridPP-IAM.png" class="m-10 h-40 rounded shadow" />
+
+<img src="/images/Belle2-IAM.png" class="m-10 h-80 rounded shadow" />
+
+
+---
+
+# DiracX: reminders
+
+<br>
+
+## DiracX is the neXt DIRAC incarnation
+
+<br>
+
+It is **a complete rewrite** of DIRAC, but the DBs are staying!
+
+![DtoX](/images/DtoX.png)
+
+
+<img id="DiracX" src="https://raw.githubusercontent.com/DIRACGrid/management/master/branding/diracx/svg/diracx-logo-square.svg"> </img>
+
+<style scoped>
+#DiracX {
+  width: 180px;
+  position: absolute;
+  right: 3%;
+  bottom: 12%;
+}
+</style>
+
+---
+layout: two-cols
+---
+
+# Versions
+
+<br>
+
+
+Current **production** version: **DIRAC v8** --> this is *the only* supported version at the moment
+- Used by *almost* all installations -- at least by everyone present at the workshop
+
+
+**Development** version: **DIRAC v9**, which will come together with **DiracX 0.1** (the 2 can not be disentangled)
+- Expected Q4 2024 (aiming to annouce at CHEP)
+- The central developers' team will actively provide help with the transitioning
+
+
+::right::
+
+<br>
+
+```mermaid
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'timeline': {'disableMulticolor': true}}}%%
+timeline
+    May 2022 : DIRAC v8.0
+    Oct 2023 : EOL DIRAC v7.3
+             : DiracX demo
+    Q4 2024  : DIRAC v9.0
+             : DiracX 0.1
+             : can start using DiracX services
+
+```
+
+
+---
+layout: center
+---
+
+# WMS developments
 
 ```mermaid
 flowchart LR;
@@ -113,548 +210,109 @@ WMS((WMS))
     SSH-->SLURM;
     WMS-->HPCs;
     HPCs-->SLURM;
-    style WMS fill:#bbf
 ```
 
----
-layout: side-title
-align: lm-lm
-color: gray-light
-title: DMS
-titlewidth: is-5
----
-
-:: title ::
-
-# Data Management System
-It’s about **files**:​ placing, replicating, removing files​
-
-- there are **LFNs** (logical file names) → and users ONLY work with these​
-- **LFNs** are registered in *catalog(s)​*
-    - where are the LFNs? (in the DIRAC File Catalog (DFC), or in Rucio)​
-    - what are their metadata? (in the DFC, or in the LHCb Bookkeeping, or in AMGA)​
-- LFNs *may* have **PFNs**, stored in **SEs**.​
-- You can access those PFNs with several protocols.​
-
-:: content ::
-
-```mermaid
-flowchart LR;
-DataManager((DataManager))
-    FileCatalog-->LFC_Service;
-    FileCatalog-->DFC_Service;
-    FileCatalog-->Transformation_Service;
-    DataManager-->FileCatalog;
-    DataManager-->StorageBase;
-    StorageBase-->SE1;
-    StorageBase-->SE2;
-    StorageBase-->SE3;
-    style FileCatalog fill:#bbf
-```
-
-
----
-layout: side-title
-color: gray-light
-align: lm-lm  
-title: Productions
----
-
-:: title ::
-
-# Productions and Dataset management
-
-- A `production` is a *Data Processing transformation* (e.g. Simulation, Merge, DataReconstruction…). A Production creates jobs in the WMS (and re-sumbit them, and destroy them).​
-
-- (Unless you are using Rucio) a *Data Manipulation transformation* replicates, or remove, data from storage elements.
-
-:: content ::
-
-<span class="bg-cyan-100 text-cyan-600 p-4 border-l-6 border-2 border-cyan-400 rounded-lg pl-8 pr-8 w-full block">
-    The **Transformation System (TS)** is used to automate common tasks related to production activities
-</span>
-
-&nbsp;
-&nbsp;
-
-```mermaid
-flowchart LR;
-TransformationSystem((TransformationSystem))
-    Productions_Management-->TransformationSystem;
-    DataSets_Management-->TransformationSystem;
-    TransformationSystem-->WorkloadManagementSystem;
-    WorkloadManagementSystem-->Jobs;
-    WorkloadManagementSystem-->Sites;
-    TransformationSystem-->RequestManagementSystem;
-    RequestManagementSystem-->DMS;
-    DMS-->Catalogs;
-    DMS-->SEs;
-    style TransformationSystem fill:#bbf
-```
-
----
-layout: top-title
-color: gray-light
-align: l
-title: history
----
-
-:: title ::
-
-# Brief history of DIRAC
-
-:: content ::
-
-```mermaid
-timeline
-        section LHCb software
-          around 2000 : MC production system: bash scripts running at production sites
-          2002 : DIRAC2 <br> Rewritten in Python, using xml-rpc, interfacing to EDG
-          Data Challenge 04 : First successful grid usage ever.
-                            : First use of pilot jobs based WMS
-          2006-2007 : DIRAC3<br> Full rewriting, development of the DISET protocol -- still in use today!
-                    : the current DIRAC framework is still based on this work
-        section Open sourced, wider adoption
-          2008 : Large-ish reshuffling to become multi-VO
-               : LHCbDIRAC extension separated from Vanilla DIRAC code
-          2009 : CLIC community adopts DIRAC
-          2011 : France-Grilles is the first multi-VO DIRAC installation
-          2012 : Belle2, BES3, CTA adopt DIRAC
-          2021 : Python3 full support
-```
-
----
-layout: side-title
-align: rm-lm
-color: red
-titlewidth: is-2
-title: issues
---- 
-
-:: title ::
-
-# DIRAC issues
-
-:: content ::
-
-<ul class="text-sm mx-auto">
-    <li> complex, with high entrance bar</li>
-    <li> somewhat cumbersome deployment</li>
-    <li> late on “standards”
-        <ul class="text-vs mx-auto">
-            <li> http services</li>
-            <li> tokens</li>
-            <li> monitoring</li>
-        </ul>
-    </li>
-    <li> “old”-ish design (RPC, “cron” agents…)</li>
-    <li> not very developer-friendly: rather un-appealing/confusing, especially for new (and young) developers</li>
-    <li> multi-VO, but was not designed to do so since the beginning</li>
-    <li> no clear interface to a running DIRAC instance</li>
-</ul>
-
----
-layout: section
-color: cyan-light
----
-
-## DiracX,  the neXt DIRAC incarnation
-
-
----
-layout: side-title
-side: left
-color: gray-light
-titlewidth: is-5
-align: rm-lm
-title: CLI
----
-
-:: title ::
-
-# What is DiracX?
-
-:: content ::
-
-- A cloud native app
-- Multi-VO from the get-go
-- Standards-based
-- Still DIRAC, in terms of functionalities
-
-
----
-layout: iframe-right
-title: Web API
-url: https://diracx-cert.app.cern.ch/api/docs
-class: webAPI
-slide_info: false
-color: gray-light
----
-
-# DiracX Web API
-
-- DIRAC Web APIs are developed using FastAPI
-- Nicely documented in Swagger (or Redoc), this what you see on the right
-
-<AdmonitionType type='caution' >
-What is on the right is the certification WebApp, loaded live. Use with caution!
-</AdmonitionType>
-
----
-layout: side-title
-side: left
-color: gray-light
-titlewidth: is-2
-align: rm-lt
-title: CLI
----
-
-
-:: title ::
-
-# <mdi-code-braces /> CLI
-
-:: content ::
-
-Scrollable with clicks 🤯
-
-```python {2|3|7|12}{maxHeight:'100px'}
-function helloworld() {
-  console.log('Hello, World 1!')
-  console.log('Hello, World 2!')
-  console.log('Hello, World 3!')
-  console.log('Hello, World 4!')
-  console.log('Hello, World 5!')
-  console.log('Hello, World 6!')
-  console.log('Hello, World 7!')
-  console.log('Hello, World 8!')
-  console.log('Hello, World 9!')
-  console.log('Hello, World 10!')
-  console.log('Hello, World 11!')
-}
-
-```
-
-You can even edit the code in the browser
-
-```ts {monaco}
-console.log('HelloWorld')
-```
-
-You can even run the code in the browser
-
-```sh
-curl -X 'GET' \
-  'https://diracx-cert.app.cern.ch/api/jobs/status?job_ids=123' \
-  -H 'accept: application/json'
-```
-
-<SpeechBubble position="t" color='orange' shape="round" maxWidth="300px">
-**REST API**, so use your own language
-</SpeechBubble>
-
-
----
-layout: iframe-left
-title: WebApp
-url: https://diracx-cert.app.cern.ch
-class: webapp
-slide_info: false
-color: gray-light
----
-
-# DiracX web
-
-We are also rewriting the WebApp from scratch.
-
-Software stack:
-- NextJS
-- Material UI
-- TypeScript
-
-https://github.com/DIRACGrid/diracx-web
-
-<AdmonitionType type='caution' >
-What is on the left is the certification WebApp, loaded live. Use with caution!
-</AdmonitionType>
+Notable developments:
+- Pilot jobs are actively developed (notable better integration with CVMFS)
+- "Push" solution for HPCs that do not support pilots (because of limited internet access). Used in production, actively developed.
+- We are starting to integrate [CWL (Common Workflow Language)](https://www.commonwl.org) as a way of defining jobs (replacing JDL) -- will be in DiracX.
 
 
 
 ---
-layout: top-title
-color: gray-light
-align: l
-title: tokens
+layout: two-cols
 ---
 
-:: title ::
+# DiracX
 
-# From X509 certs and proxies to tokens
+<br><br><br>
 
-:: content ::
+## Requirements for v0.1: 
 
-DIRAC uses X509 certificates and proxies to verify identities. DiracX uses tokens. For a (long) while, **users will have both a token and proxy**.
+- Stable underpinnings
+  - interfaces for services, dbs, auth
+- No schema changes beyond what Dirac v9 requires
+- Support for extensions (true Multi-VO)
+- Support for Legacy Adapter (i.e Dirac -> DiracX interactions)
+  - One fully supported service: JobStateUpdate
+- Complete administration documentation
+  - Including how to run with K3s
 
----
-layout: default
-color: gray-light
----
+::right::
 
-# Architecture diagram
-
-
----
-layout: side-title
-color: gray-light
-align: lm-lm
-title: Migration
----
-
-:: title ::
-
-# Migration from DIRAC
-
-- at the moment, it is not possible to run DiracX standalone
-- DIRAC v9 and DiracX will need to live together for a long while
-
-
-:: content ::
-
-<div style="width: 80%; height: 500px;">
-    ```mermaid
-    architecture-beta
-        group common(db)[common]
-        group DIRAC(server)[DIRAC]
-        group DiracX(server)[DiracX]
-
-        service db(devicon:sqldeveloper)[Database] in common
-        service client(clarity:thin-client-solid)[Client] in DIRAC
-        service dips(server)[DIPS] in DIRAC
-        service fastapi(devicon:fastapi)[FastAPI] in DiracX
-        service clientx(clarity:thin-client-line)[Client] in DiracX
-
-        db:B -- T:dips
-        db:B -- T:fastapi
-        dips:B -- T:client
-        fastapi:B -- T:clientx
-    ```
-</div>
-
-
----
-layout: top-title
-color: gray-light
-align: l
-title: Versions
----
-
-:: title ::
-
-# Versions
-
-:: content ::
-
-```mermaid
-%%{init: { 'logLevel': 'debug', 'theme': 'base', 'timeline': {'disableMulticolor': true}}}%%
-timeline
-    May 2022 : DIRAC v8.0
-    Oct 2023 : EOL DIRAC v7.3
-             : First DiracX demo
-    Q4 2024  : DiracX ...
-    Q1 2025  : DIRAC v9.0
-             : DiracX 0.1
-             : can start using DiracX services
-
-```
-
-<SpeechBubble position="r" color='cyan' shape="round"  v-drag="[20,211,148,240]">
-Current production and only supported version, used by all DIRAC installations
-</SpeechBubble>
-
-
-<SpeechBubble position="l" color='amber' shape="round"  v-drag="[820,265,140,175]">
-DIRAC v9 and DiracX 0.1 will be released together.
-</SpeechBubble>
-
----
-layout: top-title
-color: gray-light
-align: l
-title: Extensions
----
-
-:: title ::
-
-# On extending DiracX
-
-:: content ::
-
-The ol'good DIRAC is extendable: from the main code (DIRAC) to the Web and the Pilot, communites can create/run extensions.
-
-DiracX follows the same path, including DiracX-Web. We also provide a reference extension, dubbed "gubbins"
-
-
----
-layout: top-title
-color: gray-light
-align: l
-title: Development
----
-
-:: title ::
-
-# Development phylosophy
-
-:: content ::
-
+![web](/images/web.png)
 
 
 
 ---
-layout: side-title
-color: gray-light
-title: Contribute
-align: cm-lm
-titlewidth: is-3
+layout: image-right
+image: /images/IHEP.jpg
 ---
 
-:: title ::
+# Future events
 
-# *"I want to contribute"*
 
-:: content ::
+## Next DiracX hackathon
 
-## The obvious ways:
+17th - 18th September, at CERN : https://indico.cern.ch/event/1431888/
 
-- tests: (as you could see we have a somewhat open test deployment infrastructure). You *can* try something out, and let us know!
-- code: https://github.com/DIRACGrid/diracx
+<br><br>
 
-## Run the demo: 
+## Dirac+Rucio mini-workshop and hackathon
 
-```sh
-git clone https://github.com/DIRACGrid/diracx-charts
-diracx-charts/run_demo.sh  # do not do it now!
-```
+Sometimes in January (or February) 2025 at CERN
 
-## Discuss:
-- **mattermost** : https://mattermost.web.cern.ch/diracx/
-- **meetings**: (almost) every week on Thursday morning (CET)
-- **hackathons**: we have been doing 2-days DiracX hackathons every quarter. At CERN. [Next one in January](https://indico.cern.ch/event/1458873/)
+
+<br><br>
+
+## **Next Dirac Workshop**
+
+In IHEP, Beijing, September 18th-20th September 2025 : https://indico.cern.ch/e/duw11
+
+
+![](/images/ihep_logo_1.jpg)
 
 
 ---
-layout: top-title-two-cols
-align: cm-cm-lm
-color: orange-light
-titlewidth: is-5
-title: summary
---- 
-:: title ::
+layout: center
+---
+# In summary
 
-# Summary
+<br><br>
+This was a very fruitful workshop. Mostly face-to-face.
+
+More of a longer hackathon (with few presentations).
+
+Not a big community, but a very active one.
 
 
-:: left :: 
+The DIRAC+Rucio bundle is used in production only by Belle2, but CTAO, Juno, BESIII actively looking for adopting it.
+The experience of Belle2 will be useful for all of them.
 
-<img id="DiracX" src="https://raw.githubusercontent.com/DIRACGrid/management/master/branding/diracx/svg/diracx-logo-square.svg" class="mx-auto w-4/5"> </img>
-
-:: right ::
+<br>
 
 ### DiracX is in active development
-- It will live together with DIRAC v9 for a while
-- Foundations are there, the first release will soon be here
-- We plan to ease the interoperability with Rucio
-    - DiracX will still have the Data Management part, but WMS will come first
-
-
-
----
-layout: credits
-color: navy
-loop: true
-speed: 0.4
----
-
-<div class="grid text-size-4 grid-cols-3 w-3/4 gap-y-10 auto-rows-min ml-auto mr-auto">
-    <div class="grid-item text-center mr-0- col-span-3">
-        <strong>People</strong><br> 
-    </div>
-    <div class="grid-item text-right mr-4 col-span-1">
-        <strong>DiracX is an idea of</strong>
-    </div>
-    <div class="grid-item col-span-2">
-        Chris Burr <i>CERN, LHCb</i><br/>
-        Christophe Haen <i>CERN, LHCb</i>
-    </div>
-    <div class="grid-item text-right mr-4 col-span-1">
-        <strong>Current Developers</strong>
-    </div>
-    <div class="grid-item col-span-2">
-        Alexandre Boyer <i>CERN, LHCb</i><br/>
-        Natthan Piggoux <i>LUPM (FR), CTA</i><br/>
-        Cedric Serfon <i>Brookhaven National Laboratory (US), Belle2</i><br/>
-        Ryunosuke O'Neil <i>CERN, LHCb</i><br/>
-        Jorge Lisa Laborda <i>Univ. of Valencia and CSIC (ES), LHCb</i><br/>
-        Janusz Martyniak <i>Imperial college (UK), GridPP</i><br/>
-        Bertrand Rigaud <i>IN2P3 (FR)</i>
-    </div>
-    <div class="grid-item text-right mr-4 col-span-1">
-        <strong>Project lead</strong>
-    </div>
-    <div class="grid-item col-span-2">
-        Federico Stagni <i>CERN, LHCb</i><br/>
-        Andrei Tsaregorotsev <i>CPPM (FR), EGI and LHCb</i>
-    </div>
-    <!-- <div class="grid-item text-right mr-4 col-span-1">
-        <strong>Software (very limited list)</strong>
-    </div>
-    <div class="grid-item col-span-2">
-        FastAPI<br/>
-        MySQL/PostGres<br/>
-        OpenSearch<br/>
-        MinIO<br/>
-        K8 and Helm
-    </div> -->
-</div>
-
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-
-
-<div class="grid-item col-span-3 text-center mt-180px mb-auto font-size-1.5rem">
-    <strong>Questions?</strong>
-</div>
+- will live together with DIRAC v9 for a while
+- foundations are there
+- plans to ease the interoperability with Rucio (DiracX will still have the Data Management part)
 
 
 ---
-layout: side-title
-align: rm-lm
-color: light
-titlewidth: is-5
-title: QR
---- 
+layout: center
+class: text-center
+---
 
-:: title ::
+<center>
+<h1 style="font-size: 10em; font-weight: bold;">?</h1>
+</center>
 
-# QR codes for your fun
+<img id="DiracX" src="https://raw.githubusercontent.com/DIRACGrid/management/master/branding/diracx/svg/diracx-logo-square.svg"> </img>
 
-# <mdi-arrow-right />
-
-:: content ::
-
-WebApp:
-
-<QRCode value="https://diracx-cert.app.cern.ch" :size="180" render-as="svg" />
-
-<br />
-
-WebAPI:
-
-<QRCode value="https://diracx-cert.app.cern.ch/api/docs" :size="180" render-as="svg" />
-
-<br />
-
+<style scoped>
+#DiracX {
+  width: 180px;
+  position: absolute;
+  right: 3%;
+  bottom: 12%;
+}
+</style>
